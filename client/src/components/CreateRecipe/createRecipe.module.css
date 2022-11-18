@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  background-color: lightcyan;
+  opacity: 0.9;
+  border-radius: 2%;
+}
+
+hr {
+  background-color: black;
+}
+
+.general {
+  background-image: url("../../images/2640625.jpg");
+}
+
+/* BOTON DE LOS STEPS */
+
+.stepsB {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  width: 200px;
+}
+
+/* DIV QUE CONTIENE LOS BOTONES */
+.buttons {
+  display: flex;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* BOTON PARA CREAR RECETA */
+
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button {
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.input {
+  width: 50%;
+  padding: 12px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+  width: 30%;
+  padding: 12px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+textarea {
+  width: 80%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-family: 'Courier New', Courier, monospace;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin: 8px 0;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5%;
+  font-size: 20px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+    height: 100%;
+}
+
+.general {
+    background-image: url(../../images/265190-P5ITBK-44.jpg);
+    margin: 0;
+}

@@ -1,0 +1,42 @@
+.card {
+    border: 1px solid #000;
+    width: 310px;
+    border: 1px white;
+    border-radius: 5%;
+    height: max-content;
+    margin: 10px 10px;
+    background-color: black;
+    letter-spacing: 0.8px;
+}
+
+.li,
+.noDiets {
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 3);
+    height: 10px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    padding-top: 3px;
+    /* font-size: larger; */
+}
+
+li :hover {
+    text-decoration: underline;
+}
+
+.diets {
+    display: flex;
+    font-size: smaller;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100px;
+    padding-left: 0;
+    background-color: black;
+    margin: 0;
+}
+
+.noDiets {
+    margin: auto;
+    margin-top: 0;
+}

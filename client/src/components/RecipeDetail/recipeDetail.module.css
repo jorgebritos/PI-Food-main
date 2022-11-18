@@ -1,0 +1,128 @@
+.detail {
+    width: 80%;
+    margin: auto;
+}
+
+.general {
+    background-image: url('../../images/2640625.jpg');
+
+}
+
+.principals {
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    width: 800px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.image {
+    border-radius: 8px;
+    margin: 10px;
+    width: fit-content;
+    height: 300px;
+}
+
+.stepNumber {
+    width: 25px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 50%;
+    color: white;
+    text-shadow: 1px 1px 2px white;
+    background-color: black;
+}
+
+.summary,
+.stepContainer {
+    width: 90%;
+    height: fit-content;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.summary a {
+    color: blue;
+}
+
+.homeButton {
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    width: fit-content;
+}
+
+.homeButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.homeButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.homeButton:hover span {
+    padding-right: 25px;
+}
+
+.homeButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.li,
+.noDiets {
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 3);
+    height: 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 3px;
+}
+
+.diets {
+    display: flex;
+    font-size: smaller;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 70px;
+    padding-left: 0;
+    margin: 0;
+}
+
+.noDiets {
+    margin: auto;
+}
+
+.steps {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
