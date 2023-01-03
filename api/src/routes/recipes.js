@@ -10,7 +10,7 @@ const {
 
 router.get('/', async (req, res) => {
     const { name } = req.query
-    const recipeTable = await Recipe.findAll({
+    let recipeTable = await Recipe.findAll({
         include: {
             model: Diet,
             attributes: ["name"],
@@ -20,8 +20,10 @@ router.get('/', async (req, res) => {
         }
     })
 
-    const dietTable = await Recipe.findAll()
-    if (recipeTable.length === 0) {
+    const dietTable = await Diet.findAll()
+    // if(dietTable.length === 0) return res.status(403)
+    if (recipeTable.length > 0 && dietTable.length > 0) return res.send(recipeTable);
+    if(dietTable.length > 0) {
         try {
             let apiInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=108`)
             const recipes = apiInfo.data.results.map(c => {
@@ -46,9 +48,19 @@ router.get('/', async (req, res) => {
                     diets: [...c.diets, c.vegetarian ? "vegetarian" : ""]
                 }
             });
-
-            for (let i = 0; i < recipes.length; i++) {
-                let aRecipe = recipes[i];
+    
+            recipeTable = await Recipe.findAll({
+                include: {
+                    model: Diet,
+                    attributes: ["name"],
+                    through: {
+                        attributes: []
+                    }
+                }
+            })
+    
+            for (let i = 0; i < info.length; i++) {
+                let aRecipe = info[i];
                 let data = await recipeTable.find(r => r.id == aRecipe.id);
                 for (let j = 0; j < aRecipe.diets.length; j++) {
                     let diet = await dietTable.find(d => d.name == aRecipe.diets[j])
@@ -58,21 +70,22 @@ router.get('/', async (req, res) => {
             return res.send(info)
         } catch (error) {
             res.status(404).send(error)
+    
+            if (name) {
+                const specificRecipe = await Recipe.findAll({
+                    where: {
+                        name: { [Op.iLike]: `%${name}%` }
+                    }
+                })
+    
+                if (specificRecipe.length > 0) return res.status(200).send(specificRecipe);
+    
+                return res.status(404).send("No such Recipe");
+            }
         }
     } else {
-        if (name) {
-            const specificRecipe = await Recipe.findAll({
-                where: {
-                    name: { [Op.iLike]: `%${name}%` }
-                }
-            })
-
-            if (specificRecipe.length > 0) return res.status(200).send(specificRecipe);
-
-            return res.status(404).send("No such Recipe");
-        }
+        return res.status(403)
     }
-    res.status(200).send(recipeTable);
 })
 
 router.get('/:id', async (req, res) => {
